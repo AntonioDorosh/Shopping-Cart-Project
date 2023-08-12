@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     HomeButton,
-    ValidationButton, ValidationForm,
+    ValidationButton,
+    ValidationForm,
     ValidationInput,
     ValidationStyled,
     ValidationWrapper
@@ -9,20 +10,57 @@ import {
 import {AiOutlineHome} from "react-icons/ai";
 import {Link} from "react-router-dom";
 
-const Validation = () => {
+interface IValidation {
+    firstName?: string;
+    email?: string;
+    password?: string;
+    confirmPassword?: string;
+}
+
+
+const Validation: React.FC<IValidation> = () => {
+
+    const [formData, setFormData] = useState<IValidation>({
+        firstName: '',
+        email: '',
+        password: '',
+    });
+
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = e.target;
+        if (name === 'firstName') {
+            if (value.length > 10) return;
+        }
+        if (name === 'password') {
+            if (value.length > 20) return;
+        }
+        setFormData(prevState => ({...prevState, [name]: value}));
+    }
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(formData);
+    }
+
     return (
         <ValidationStyled>
-            <ValidationForm>
+            <ValidationForm onSubmit={handleSubmit}>
                 <ValidationWrapper>
                     <Link to='/'>
                         <HomeButton><AiOutlineHome/></HomeButton>
                     </Link>
-                    <ValidationInput type="text" name="name"
-                                     placeholder="Name"/>
+                    <ValidationInput type="text" name="firstName"
+                                     placeholder="Name"
+                                     value={formData.firstName}
+                                     onChange={handleChange}/>
                     <ValidationInput type="text" name="email"
-                                     placeholder="Email"/>
+                                     placeholder="Email" value={formData.email}
+                                     onChange={handleChange}/>
                     <ValidationInput type="text" name="password"
-                                     placeholder="Password"/>
+                                     placeholder="Password"
+                                     value={formData.password}
+                                     onChange={handleChange}/>
                     <ValidationButton type="submit">Submit</ValidationButton>
                 </ValidationWrapper>
             </ValidationForm>
