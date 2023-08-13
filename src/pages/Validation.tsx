@@ -12,6 +12,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useFormik} from "formik";
 import * as Yup from 'yup';
 import {BiHide, BiShow} from "react-icons/bi";
+import {GoAlertFill} from "react-icons/go";
 
 interface FormikValues {
     firstName: string;
@@ -49,25 +50,26 @@ const Validation = () => {
                         <HomeButton><AiOutlineHome/></HomeButton>
                     </Link>
                     <label htmlFor="firstName">
-                        {formik.errors.firstName ? <span
-                            style={{color: 'red'}}>{formik.errors.firstName}</span> : 'Name'}
+                        {formik.errors.firstName ? <GoAlertFill/> : ''}
                     </label>
                     <ValidationInput
                         type="text" name="firstName"
                         placeholder={'Name'}
                         value={formik.values.firstName}
-                        onChange={formik.handleChange}/>
+                        onChange={formik.handleChange}
+                        borderColor={formik.errors.firstName ? 'red' : undefined}
+                    />
                     <label htmlFor="email">
-                        {formik.errors.email ? <span
-                            style={{color: 'red'}}>{formik.errors.email}</span> : 'Email'}
+                        {formik.errors.email ? <GoAlertFill/> : ''}
                     </label>
                     <ValidationInput type="text" name="email"
                                      placeholder="Email"
                                      value={formik.values.email}
-                                     onChange={formik.handleChange}/>
+                                     onChange={formik.handleChange}
+                                     borderColor={formik.errors.email ? 'red' : undefined}
+                    />
                     <label htmlFor="password">
-                        {formik.errors.password ? <span
-                            style={{color: 'red'}}>{formik.errors.password}</span> : 'Password'}
+                        {formik.errors.password ? formik.errors.password : ''}
                     </label>
                     <div style={{
                         position: 'relative',
@@ -77,12 +79,13 @@ const Validation = () => {
                             name="password"
                             placeholder="Password"
                             value={formik.values.password}
-                            onChange={formik.handleChange}/>
+                            onChange={formik.handleChange}
+                            borderColor={formik.errors.password ? 'red' : undefined}
+                        />
                         <ShowPassButton
                             onClick={handleShowPassword}>{showPassword ?
                             <BiHide/> : <BiShow/>}</ShowPassButton>
                     </div>
-
                     <ValidationButton type="submit">Submit</ValidationButton>
                 </ValidationWrapper>
             </ValidationForm>

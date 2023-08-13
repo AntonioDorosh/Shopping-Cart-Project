@@ -30,14 +30,14 @@ export const ValidationForm = styled.form`
   height: 100%;
 `
 
-export const ValidationInput = styled.input`
+export const ValidationInput = styled.input<{ borderColor?: string }>`
   width: 300px;
   height: 50px;
   margin-bottom: 20px;
   padding: 0 10px;
   border-radius: 5px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid ${({borderColor}) => borderColor ? borderColor : '#ccc'};
 `
 
 export const ValidationButton = styled.button`
@@ -80,6 +80,7 @@ export const ShowPassButton = styled.button`
   right: 0;
   font-size: 1rem;
   cursor: pointer;
+
   &:hover {
     color: #1a73e8;
   }
