@@ -26,7 +26,6 @@ const ProductCartItem = (props: ProductTypes) => {
                 <ProductButton
                     onClick={() => removeProduct(id)}><BsTrash/></ProductButton>
             </ProductWrapper>
-
         </>
     );
 };

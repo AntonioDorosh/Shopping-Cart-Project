@@ -6,15 +6,14 @@ import {filteredProducts} from "../../utils/filteredProducts.ts";
 import {useSearch} from "../../context/SearchProducts.tsx";
 
 const Card = () => {
-    const { product } = useProduct();
-    const { searchProduct } = useSearch();
+    const {product} = useProduct();
+    const {searchProduct} = useSearch();
 
     const filterProduct = filteredProducts(product, searchProduct);
 
     return (
         <CardStyled>
             {filterProduct?.map((item) => <CardItem key={item.id} {...item}/>)}
-
         </CardStyled>
     );
 };

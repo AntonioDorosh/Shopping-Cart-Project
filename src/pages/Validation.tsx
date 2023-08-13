@@ -84,7 +84,8 @@ const Validation = () => {
                         />
                         <ShowPassButton
                             onClick={handleShowPassword}>{showPassword ?
-                            <BiHide/> : <BiShow/>}</ShowPassButton>
+                            <BiHide/> : <BiShow/>}
+                        </ShowPassButton>
                     </div>
                     <ValidationButton type="submit">Submit</ValidationButton>
                 </ValidationWrapper>
