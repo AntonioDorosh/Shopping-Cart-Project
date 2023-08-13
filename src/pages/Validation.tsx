@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
     HomeButton,
     ValidationButton,
@@ -9,58 +9,68 @@ import {
 } from "./styles/Validation.styled.tsx";
 import {AiOutlineHome} from "react-icons/ai";
 import {Link} from "react-router-dom";
+import {useFormik} from "formik";
+import * as Yup from 'yup';
 
-interface IValidation {
-    firstName?: string;
-    email?: string;
-    password?: string;
-    confirmPassword?: string;
+interface FormikValues {
+    firstName: string;
+    email: string;
+    password: string;
 }
 
+const Validation = () => {
 
-const Validation: React.FC<IValidation> = () => {
-
-    const [formData, setFormData] = useState<IValidation>({
-        firstName: '',
-        email: '',
-        password: '',
+    const formik = useFormik<FormikValues>({
+        initialValues: {
+            firstName: '',
+            email: '',
+            password: ''
+        },
+        validationSchema: Yup.object({
+            firstName: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
+            email: Yup.string().email('Invalid email address').required('Required'),
+            password: Yup.string().min(6, 'Must be 6 characters or more').required('Required')
+        }),
+        onSubmit: values => {
+            console.log(values);
+        }
     });
 
+    console.log(formik.errors)
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.target;
-        if (name === 'firstName') {
-            if (value.length > 10) return;
-        }
-        if (name === 'password') {
-            if (value.length > 20) return;
-        }
-        setFormData(prevState => ({...prevState, [name]: value}));
-    }
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log(formData);
-    }
 
     return (
         <ValidationStyled>
-            <ValidationForm onSubmit={handleSubmit}>
+            <ValidationForm onSubmit={formik.handleSubmit}>
                 <ValidationWrapper>
                     <Link to='/'>
                         <HomeButton><AiOutlineHome/></HomeButton>
                     </Link>
-                    <ValidationInput type="text" name="firstName"
-                                     placeholder="Name"
-                                     value={formData.firstName}
-                                     onChange={handleChange}/>
+                    <label htmlFor="firstName">
+                        {formik.errors.firstName ? <span
+                            style={{color: 'red'}}>{formik.errors.firstName}</span> : 'Name'}
+                    </label>
+                    <ValidationInput border={formik.errors && '1px solid red'}
+                                     type="text" name="firstName"
+                                     placeholder={'Name'}
+                                     value={formik.values.firstName}
+                                     onChange={formik.handleChange}/>
+                    <label htmlFor="email">
+                        {formik.errors.email ? <span
+                            style={{color: 'red'}}>{formik.errors.email}</span> : 'Email'}
+                    </label>
                     <ValidationInput type="text" name="email"
-                                     placeholder="Email" value={formData.email}
-                                     onChange={handleChange}/>
+                                     placeholder="Email"
+                                     value={formik.values.email}
+                                     onChange={formik.handleChange}/>
+                    <label htmlFor="password">
+                        {formik.errors.password ? <span
+                            style={{color: 'red'}}>{formik.errors.password}</span> : 'Password'}
+                    </label>
                     <ValidationInput type="text" name="password"
                                      placeholder="Password"
-                                     value={formData.password}
-                                     onChange={handleChange}/>
+                                     value={formik.values.password}
+                                     onChange={formik.handleChange}/>
                     <ValidationButton type="submit">Submit</ValidationButton>
                 </ValidationWrapper>
             </ValidationForm>

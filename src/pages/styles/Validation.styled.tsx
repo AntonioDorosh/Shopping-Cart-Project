@@ -30,12 +30,12 @@ export const ValidationForm = styled.form`
   height: 100%;
 `
 
-export const ValidationInput = styled.input`
+export const ValidationInput = styled.input<{border?: string}>`
   width: 300px;
   height: 50px;
   margin-bottom: 20px;
   padding: 0 10px;
-  border: 1px solid #000;
+  border: ${props => props.border || '1px solid #ccc'}
   border-radius: 5px;
   outline: none;
 `
@@ -73,3 +73,9 @@ export const HomeButton = styled.button`
     transition: color 0.3s ease-in-out;
   }
 `
+
+export const formikError = styled.div `
+    
+`
+
+
