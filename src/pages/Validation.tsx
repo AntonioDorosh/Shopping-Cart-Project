@@ -8,7 +8,7 @@ import {
     ValidationWrapper
 } from "./styles/Validation.styled.tsx";
 import {AiOutlineHome} from "react-icons/ai";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useFormik} from "formik";
 import * as Yup from 'yup';
 
@@ -19,6 +19,8 @@ interface FormikValues {
 }
 
 const Validation = () => {
+
+    const navigate = useNavigate();
 
     const formik = useFormik<FormikValues>({
         initialValues: {
@@ -32,12 +34,10 @@ const Validation = () => {
             password: Yup.string().min(6, 'Must be 6 characters or more').required('Required')
         }),
         onSubmit: values => {
-            console.log(values);
+            alert(JSON.stringify(values, null, 2));
+            navigate('/');
         }
     });
-
-    console.log(formik.errors)
-
 
     return (
         <ValidationStyled>
