@@ -37,12 +37,12 @@ export const ValidationInput = styled.input`
   padding: 0 10px;
   border-radius: 5px;
   outline: none;
+  border: 1px solid #ccc;
 `
 
 export const ValidationButton = styled.button`
   width: 300px;
   height: 50px;
-  margin-bottom: 20px;
   border: none;
   border-radius: 5px;
   outline: none;
@@ -70,6 +70,18 @@ export const HomeButton = styled.button`
   &:hover {
     color: #1a73e8;
     transition: color 0.3s ease-in-out;
+  }
+`
+
+export const ShowPassButton = styled.button`
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  &:hover {
+    color: #1a73e8;
   }
 `
 
