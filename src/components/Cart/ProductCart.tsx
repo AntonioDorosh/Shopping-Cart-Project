@@ -1,7 +1,7 @@
 import React from 'react';
 import {useProduct} from "../../context/ProductContext.tsx";
 import {EmptyCartStyled, TotalPrice} from "./ProductCart.styled.tsx";
-import ProductCartItem from "../Cart/ProductCartItem.tsx";
+import ProductCartItem from "./CartItem/ProductCartItem.tsx";
 import {formatCurrency} from "../../utils/formatCurrency.ts";
 
 const ProductCart = () => {
@@ -12,7 +12,7 @@ const ProductCart = () => {
             return (
                 <EmptyCartStyled>
                     <h3>Cart is empty</h3>
-                    <img src='src/assets/empty-box.jpg' alt="empty-cart"/>
+                    <img src='../../assets/empty-box.jpg' alt="empty-cart"/>
                     <span>Add some shoes to your cart</span>
                 </EmptyCartStyled>
             );

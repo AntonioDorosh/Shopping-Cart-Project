@@ -6,7 +6,7 @@ import {
     ModalWrapper
 } from "./Modal.styled.tsx";
 import {GrClose} from "react-icons/gr";
-import ProductCart from "../../components/ProductCart/ProductCart.tsx";
+import ProductCart from "../../components/Cart/ProductCart.tsx";
 import {useModal} from "../../context/ModalContext.tsx";
 
 const Modal = () => {

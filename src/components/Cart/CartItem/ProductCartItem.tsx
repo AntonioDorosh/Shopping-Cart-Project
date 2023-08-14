@@ -3,10 +3,10 @@ import {
     ProductButton,
     ProductCartImage,
     ProductWrapper
-} from "../ProductCart/ProductCart.styled.tsx";
-import {formatCurrency} from "../../utils/formatCurrency.ts";
-import {ProductTypes} from "../../types";
-import {useProduct} from "../../context/ProductContext.tsx";
+} from "../ProductCart.styled.tsx";
+import {formatCurrency} from "../../../utils/formatCurrency.ts";
+import {ProductTypes} from "../../../types";
+import {useProduct} from "../../../context/ProductContext.tsx";
 import {BsTrash} from "react-icons/bs";
 
 const ProductCartItem = (props: ProductTypes) => {
