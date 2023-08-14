@@ -3,13 +3,15 @@ import {CardStyled} from "./Card.styled.tsx";
 import CardItem from "../CardItem/CardItem.tsx";
 import {useProduct} from "../../context/ProductContext.tsx";
 import {filteredProducts} from "../../utils/filteredProducts.ts";
-import {useSearch} from "../../context/SearchProducts.tsx";
 
-const Card = () => {
+type CardPropsType = {
+    searchTerm: string
+}
+
+const Card = ({searchTerm}: CardPropsType) => {
     const {product} = useProduct();
-    const {searchProduct} = useSearch();
 
-    const filterProduct = filteredProducts(product, searchProduct);
+    const filterProduct = filteredProducts(product, searchTerm);
 
     return (
         <CardStyled>

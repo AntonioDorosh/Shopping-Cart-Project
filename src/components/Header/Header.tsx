@@ -1,18 +1,22 @@
 import React from 'react';
 import {
     HeaderButton,
-    HeaderList, HeaderNav,
+    HeaderList,
+    HeaderNav,
     HeaderStyled,
-    HeaderWrapper, QuantityCounter
+    HeaderWrapper,
+    QuantityCounter
 } from "./Header.styled.tsx";
 import {BiCart, BiUserCircle} from "react-icons/bi";
 import {AiOutlineHeart} from "react-icons/ai";
 import {Link} from "react-router-dom";
-import {useModal} from "../../context/ModalContext.tsx";
 import {useProduct} from "../../context/ProductContext.tsx";
 
-const Header = () => {
-    const {toggleModal} = useModal();
+type HeaderProps = {
+    toggleModal: () => void;
+}
+
+const Header = ({toggleModal}: HeaderProps) => {
     const {handlerQuantity} = useProduct();
 
     return (
