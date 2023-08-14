@@ -4,4 +4,5 @@ export type ProductTypes = {
     price: number;
     quantity: number;
     imgSrc: string;
+    favorite: boolean;
 }

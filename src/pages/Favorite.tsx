@@ -2,7 +2,8 @@ import React from 'react';
 import {AppStyled} from "../styles/App.styled.tsx";
 import {Link} from "react-router-dom";
 import {AiOutlineRollback} from "react-icons/ai";
-import {BackButtonStyled} from "./styles/Favorite.styled.tsx";
+import {BackButtonStyled} from "../styles/Favorite.styled.tsx";
+
 
 const Favorite = () => {
 

@@ -7,7 +7,7 @@ import {useProduct} from "../../context/ProductContext.tsx";
 
 const CardItem: React.FC<ProductTypes> = (props) => {
     const {id, price, title, imgSrc} = props;
-    const {addToCart} = useProduct();
+    const {addToCart, addToFavorite} = useProduct();
 
     return (
         <article key={id}>
@@ -16,6 +16,8 @@ const CardItem: React.FC<ProductTypes> = (props) => {
             <CardPrice>Price: {formatCurrency(price)}</CardPrice>
             <CardButton onClick={() => addToCart({...props})}>+ Add To
                 Cart</CardButton>
+            <CardButton onClick={() => addToFavorite(id)}>+ Add To
+                Favorite</CardButton>
         </article>
     );
 };

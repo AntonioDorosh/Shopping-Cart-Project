@@ -6,14 +6,15 @@ import Validation from "../pages/Validation.tsx";
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <App/>
+        element: <App/>,
+
     },
     {
-        path: '/favorites',
-        element: <Favorite/>
+        path: 'favorites',
+        element: <Favorite/>,
     },
     {
         path: 'validation',
-        element: <Validation/>
+        element: <Validation/>,
     }
 ]);

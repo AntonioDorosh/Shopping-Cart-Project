@@ -18,6 +18,8 @@ type ProductContextType = {
     removeProduct: (id: number) => void;
     total: number;
     handlerQuantity: number;
+    addToFavorite: (id: number) => void;
+    favorite: ProductTypes[];
 }
 
 const ProductContext = createContext({} as ProductContextType);
@@ -30,6 +32,7 @@ export const ProductProvider: FC<{
         "productCart",
         []
     );
+    const [favorite, setFavorite] = useState<ProductTypes[]>([]);
     const [total, setTotal] = useState<number>(0);
 
     const addToCart = (productItem: ProductTypes) => {
@@ -43,6 +46,17 @@ export const ProductProvider: FC<{
             setProductCart(newProduct)
         } else {
             setProductCart([...productCart, {...productItem, quantity: 1}])
+        }
+    }
+
+    const addToFavorite = (id: number) => {
+        const exist = favorite.find((item) => item.id === id);
+
+        if (exist) {
+            setFavorite(favorite.filter((item) => item.id !== id));
+        } else {
+            const newProduct = product.filter((item) => item.id === id);
+            setFavorite([...favorite, ...newProduct]);
         }
     }
 
@@ -78,7 +92,9 @@ export const ProductProvider: FC<{
         productCart,
         removeProduct,
         total,
-        handlerQuantity
+        handlerQuantity,
+        addToFavorite,
+        favorite
     };
 
     return (

@@ -1,29 +1,28 @@
 import React from 'react';
 import './App.css';
-import {AppStyled} from "./styles/App.styled.tsx";
-import Header from "./components/Header/Header.tsx";
-import InputSearch from "./UI/Input/InputSearch.tsx";
-import Card from "./components/Card/Card.tsx";
 import {ProductProvider} from "./context/ProductContext.tsx";
 import {ModalProvider} from "./context/ModalContext.tsx";
 import Modal from "./UI/Modal/Modal.tsx";
 import {SearchProvider} from "./context/SearchProducts.tsx";
-
+import {Route, Routes} from "react-router-dom";
+import Favorite from "./pages/Favorite.tsx";
+import Home from "./pages/Home.tsx";
 
 const App = () => {
 
     return (
         <ProductProvider>
             <ModalProvider>
-                <AppStyled>
-                    <Header/>
-                    <SearchProvider>
-                        <InputSearch/>
-                        <Card/>
-                    </SearchProvider>
-                </AppStyled>
+                <SearchProvider>
+                    <Routes>
+                        <Route path='/' element={<Home/>}/>
+                    </Routes>
+                </SearchProvider>
                 <Modal/>
             </ModalProvider>
+            <Routes>
+                <Route path='/favorites' element={<Favorite/>}/>
+            </Routes>
         </ProductProvider>
     );
 };

@@ -6,7 +6,7 @@ import {
     ValidationInput,
     ValidationStyled,
     ValidationWrapper
-} from "./styles/Validation.styled.tsx";
+} from "../styles/Validation.styled.tsx";
 import {AiOutlineHome} from "react-icons/ai";
 import {Link, useNavigate} from "react-router-dom";
 import {useFormik} from "formik";
