@@ -7,13 +7,10 @@ import {
 } from "./Modal.styled.tsx";
 import {GrClose} from "react-icons/gr";
 import ProductCart from "../../components/ProductCart/ProductCart.tsx";
+import {useModal} from "../../context/ModalContext.tsx";
 
-type ModalProps = {
-    modal: boolean;
-    toggleModal: () => void;
-}
-
-const Modal = ({modal, toggleModal}: ModalProps) => {
+const Modal = () => {
+    const {modal, toggleModal} = useModal();
 
     if (!modal) {
         return null;

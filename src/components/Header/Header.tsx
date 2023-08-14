@@ -1,22 +1,14 @@
 import React from 'react';
 import {
-    HeaderButton,
-    HeaderList,
-    HeaderNav,
     HeaderStyled,
     HeaderWrapper,
     QuantityCounter
 } from "./Header.styled.tsx";
-import {BiCart, BiUserCircle} from "react-icons/bi";
-import {AiOutlineHeart} from "react-icons/ai";
-import {Link} from "react-router-dom";
 import {useProduct} from "../../context/ProductContext.tsx";
+import Navigation from "../Navigation/Navigation.tsx";
 
-type HeaderProps = {
-    toggleModal: () => void;
-}
 
-const Header = ({toggleModal}: HeaderProps) => {
+const Header = () => {
     const {handlerQuantity} = useProduct();
 
     return (
@@ -24,32 +16,12 @@ const Header = ({toggleModal}: HeaderProps) => {
             <HeaderWrapper>
                 <img src="src/assets/logo.svg" alt="logo"/>
                 <h2>REACT SHOP</h2>
-                <HeaderNav>
-                    <HeaderList>
-                        <li>
-                            <HeaderButton onClick={toggleModal}>
-                                <BiCart/>
-                            </HeaderButton>
-                        </li>
-                        <li>
-                            <Link to='/favorites'>
-                                <HeaderButton>
-                                    <AiOutlineHeart/>
-                                </HeaderButton>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/validation'>
-                                <HeaderButton>
-                                    <BiUserCircle/>
-                                </HeaderButton>
-                            </Link>
-                        </li>
-                    </HeaderList>
-                    <QuantityCounter>
-                        <p>{handlerQuantity}</p>
-                    </QuantityCounter>
-                </HeaderNav>
+                <Navigation/>
+                <QuantityCounter>
+                    <p>
+                        {handlerQuantity}
+                    </p>
+                </QuantityCounter>
             </HeaderWrapper>
         </HeaderStyled>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useProduct} from "../../context/ProductContext.tsx";
 import {EmptyCartStyled, TotalPrice} from "./ProductCart.styled.tsx";
-import ProductCartItem from "./ProductCartItem.tsx";
+import ProductCartItem from "../Cart/ProductCartItem.tsx";
 import {formatCurrency} from "../../utils/formatCurrency.ts";
 
 const ProductCart = () => {
