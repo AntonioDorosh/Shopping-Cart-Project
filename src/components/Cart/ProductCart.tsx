@@ -12,7 +12,7 @@ const ProductCart = () => {
             return (
                 <EmptyCartStyled>
                     <h3>Cart is empty</h3>
-                    <img src='../../assets/empty-box.jpg' alt="empty-cart"/>
+                    <img src='src/assets/empty-box.jpg' alt="empty-cart"/>
                     <span>Add some shoes to your cart</span>
                 </EmptyCartStyled>
             );

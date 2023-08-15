@@ -38,7 +38,6 @@ export const HeaderButton = styled.button`
     transition: color 0.3s ease-in-out;
   }
 `
-
 export const HeaderNav = styled.nav`
   position: relative;
 `
