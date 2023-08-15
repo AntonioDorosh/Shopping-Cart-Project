@@ -25,6 +25,7 @@ export const FavoriteButton = styled.button`
   left: 0;
   font-size: 1.5rem;
   cursor: pointer;
+  background-color: transparent;
 
   &:hover {
     color: #0D6EFD;

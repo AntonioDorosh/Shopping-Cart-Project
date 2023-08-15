@@ -10,9 +10,10 @@ import {Link} from "react-router-dom";
 import {AiOutlineHeart} from "react-icons/ai";
 import {useProduct} from "../../context/ProductContext.tsx";
 import {useModal} from "../../context/ModalContext.tsx";
+import {BsFillHeartFill} from "react-icons/bs";
 
 const Navigation = () => {
-    const {handlerQuantity} = useProduct();
+    const {handlerQuantity, favorite, productCart} = useProduct();
     const {toggleModal} = useModal();
 
     return (
@@ -26,7 +27,9 @@ const Navigation = () => {
                 <li>
                     <Link to='/favorites'>
                         <HeaderButton>
-                            <AiOutlineHeart/>
+                            {favorite.length > 0 ?
+                                <BsFillHeartFill fill={'blue'}/> :
+                                <AiOutlineHeart/>}
                         </HeaderButton>
                     </Link>
                 </li>
@@ -38,11 +41,11 @@ const Navigation = () => {
                     </Link>
                 </li>
             </HeaderList>
-            <QuantityCounter>
-                <p>
+            {productCart.length > 0 && (
+                <QuantityCounter>
                     {handlerQuantity}
-                </p>
-            </QuantityCounter>
+                </QuantityCounter>
+            )}
         </HeaderNav>
     );
 };
