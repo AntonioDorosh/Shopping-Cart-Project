@@ -5,7 +5,7 @@ import Validation from "../pages/Validation.tsx";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
+        path: "*",
         element: <App/>,
 
     },

@@ -32,7 +32,10 @@ export const ProductProvider: FC<{
         "productCart",
         []
     );
-    const [favorite, setFavorite] = useState<ProductTypes[]>([]);
+    const [favorite, setFavorite] = useLocalStorage<ProductTypes[]>(
+        "favorite",
+        []
+    );
     const [total, setTotal] = useState<number>(0);
 
     const addToCart = (productItem: ProductTypes) => {

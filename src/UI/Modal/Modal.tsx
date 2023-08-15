@@ -6,7 +6,7 @@ import {
     ModalWrapper
 } from "./Modal.styled.tsx";
 import {GrClose} from "react-icons/gr";
-import ProductCart from "../../components/Cart/ProductCart.tsx";
+import Cart from "../../components/Cart/Cart.tsx";
 import {useModal} from "../../context/ModalContext.tsx";
 
 const Modal = () => {
@@ -24,7 +24,7 @@ const Modal = () => {
                     <ModalButton
                         onClick={toggleModal}><GrClose/></ModalButton>
                 </ModalHeader>
-                <ProductCart/>
+                <Cart/>
             </ModalWrapper>
         </ModalStyled>
     );

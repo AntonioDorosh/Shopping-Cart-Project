@@ -3,7 +3,7 @@ import {
     ProductButton,
     ProductCartImage,
     ProductWrapper
-} from "../ProductCart.styled.tsx";
+} from "../Cart.styled.tsx";
 import {formatCurrency} from "../../../utils/formatCurrency.ts";
 import {ProductTypes} from "../../../types";
 import {useProduct} from "../../../context/ProductContext.tsx";

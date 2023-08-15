@@ -12,8 +12,8 @@ import {useProduct} from "../../context/ProductContext.tsx";
 import {useModal} from "../../context/ModalContext.tsx";
 
 const Navigation = () => {
-    const { handlerQuantity } = useProduct();
-    const { toggleModal } = useModal();
+    const {handlerQuantity} = useProduct();
+    const {toggleModal} = useModal();
 
     return (
         <HeaderNav>

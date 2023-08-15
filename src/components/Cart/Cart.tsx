@@ -1,10 +1,10 @@
 import React from 'react';
 import {useProduct} from "../../context/ProductContext.tsx";
-import {EmptyCartStyled, TotalPrice} from "./ProductCart.styled.tsx";
+import {EmptyCartStyled, TotalPrice} from "./Cart.styled.tsx";
 import ProductCartItem from "./CartItem/ProductCartItem.tsx";
 import {formatCurrency} from "../../utils/formatCurrency.ts";
 
-const ProductCart = () => {
+const Cart = () => {
     const {productCart, total} = useProduct();
 
     const renderCartList = () => {
@@ -37,4 +37,4 @@ const ProductCart = () => {
     );
 };
 
-export default ProductCart;
+export default Cart;
