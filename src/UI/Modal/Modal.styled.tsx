@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import {keyframes} from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 export const ModalStyled = styled.div`
   position: fixed;
@@ -21,13 +20,11 @@ const modalBarAppear = keyframes`
 `
 
 export const ModalWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: #fff;
   width: min(100% - 40px, 400px);
-  min-height: 100vh;
+  height: 100%;
   padding: 30px;
+  overflow-y: scroll;
   animation: ${modalBarAppear} 0.3s ease-in-out;
 `
 

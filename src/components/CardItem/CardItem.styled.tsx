@@ -7,14 +7,14 @@ export const CardPrice = styled.span`
 
 export const CardButton = styled.button`
   width: 100%;
-  background-color: #0D6EFD;
+  background-color: #000;
   border: none;
   color: #ffffff;
   padding: 10px;
   cursor: pointer;
 
   &:hover {
-    background-color: #0b5ed7;
+    background-color: rgb(234, 191, 0);
     transition: background-color 0.3s ease-in-out;
   }
 `
@@ -28,7 +28,7 @@ export const FavoriteButton = styled.button`
   background-color: transparent;
 
   &:hover {
-    color: #0D6EFD;
+    color: rgb(234, 191, 0);
     transition: color 0.3s ease-in-out;
   }
 `

@@ -22,10 +22,10 @@ const CardItem: React.FC<ProductTypes> = (props) => {
             <CardImage src={imgSrc} alt={title}/>
             <CardTitle>{title}</CardTitle>
             <CardPrice>Price: {formatCurrency(price)}</CardPrice>
-            <CardButton onClick={() => addToCart({...props})}>+ Add To
+            <CardButton onClick={() => addToCart({...props})}>Add To
                 Cart</CardButton>
             <FavoriteButton onClick={() => toggleFavorite(id)}>{isOnFavorite ?
-                <BsFillHeartFill fill={'blue'}/> :
+                <BsFillHeartFill fill={'yellow'}/> :
                 <AiOutlineHeart/>}</FavoriteButton>
         </article>
     );

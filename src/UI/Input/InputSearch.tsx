@@ -1,9 +1,7 @@
-import React from 'react';
-import {
-    InputSearchStyled,
-    InputStyled,
-    LabelStyled
-} from "./InputSearch.styled.tsx";
+import React, {useState} from 'react';
+import {InputSearchStyled, InputStyled} from "./InputSearch.styled.tsx";
+import Select from "../Select/Select.tsx";
+import {useProduct} from "../../context/ProductContext.tsx";
 
 type InputSearchPropsType = {
     searchTerm: string
@@ -12,9 +10,23 @@ type InputSearchPropsType = {
 
 const InputSearch = ({searchTerm, setSearchTerm}: InputSearchPropsType) => {
 
+    const [filter, setFilter] = useState<string>('All');
+    const {product} = useProduct();
+
+    const selectByCategories = product.filter((item) => {
+        switch (filter) {
+            case 'All':
+                return item;
+            case 'lowest-price':
+                return product.sort((a, b) => a.price - b.price);
+            case 'highest-price':
+                return product.sort((a, b) => b.price - a.price);
+        }
+    })
+
     return (
         <InputSearchStyled>
-            <LabelStyled>All Shoes</LabelStyled>
+            <Select filter={filter} setFilter={setFilter}/>
             <InputStyled
                 type="text"
                 placeholder="Search..."

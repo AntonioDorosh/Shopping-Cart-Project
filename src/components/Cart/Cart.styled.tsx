@@ -5,6 +5,7 @@ export const ProductWrapper = styled.div`
   align-items: center;
   gap: 1rem;
   margin: 0 0 0.7rem 0;
+  border-bottom: 1px solid #ccc;
 `
 
 export const ProductCartImage = styled.img`
@@ -22,30 +23,25 @@ export const ProductButton = styled.button`
   transition: all 0.3s ease-in-out;
   border-radius: 0.25rem;
   font-size: 1.2rem;
-    display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+
   &:hover {
     background-color: #ff0000;
     color: #fff;
   }
 `
 
-export const TotalQuantity = styled.span`
+
+export const EmptyCartStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const TotalPrice = styled.h3`
   display: inline-flex;
   width: 100%;
   justify-content: flex-end;
-  font-weight: 700;
-`
-
-export const EmptyCartStyled = styled.div `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
-
-export const TotalPrice = styled.h3 `
-    display: inline-flex;
-    width: 100%;
-    justify-content: flex-end;
 `

@@ -34,7 +34,7 @@ export const HeaderButton = styled.button`
   font-size: 1.5rem;
 
   &:hover {
-    color: #0D6EFD;
+    color: rgb(234, 191, 0);
     transition: color 0.3s ease-in-out;
   }
 `
@@ -50,7 +50,7 @@ export const QuantityCounter = styled.div`
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  background-color: #0D6EFD;
+  background-color: rgb(234, 191, 0);
   color: #fff;
   display: flex;
   justify-content: center;
