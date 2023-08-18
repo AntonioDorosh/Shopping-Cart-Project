@@ -20,6 +20,9 @@ type ProductContextType = {
     handlerQuantity: number;
     addToFavorite: (id: number) => void;
     favorite: ProductTypes[];
+    filter: string;
+    setFilter: (filter: string) => void;
+    selectedByFilter: ProductTypes[];
 }
 
 const ProductContext = createContext({} as ProductContextType);
@@ -37,6 +40,23 @@ export const ProductProvider: FC<{
         []
     );
     const [total, setTotal] = useState<number>(0);
+    const [filter, setFilter] = useState('');
+
+    const selectedByFilter = product.filter((item) => {
+        if (filter === '') {
+            return item;
+        } else if (filter === 'lowest-price') {
+            return product.sort((a, b) => a.price - b.price);
+        } else if (filter === 'highest-price') {
+            return product.sort((a, b) => b.price - a.price);
+        } else if (filter === 'a-z') {
+            return product.sort((a, b) => a.title.localeCompare(b.title));
+        } else if (filter === 'z-a') {
+            return product.sort((a, b) => b.title.localeCompare(a.title));
+        } else {
+            return item;
+        }
+    });
 
     const addToCart = (productItem: ProductTypes) => {
         const exist = productCart.find((item) => item.id === productItem.id);
@@ -97,7 +117,10 @@ export const ProductProvider: FC<{
         total,
         handlerQuantity,
         addToFavorite,
-        favorite
+        favorite,
+        filter,
+        setFilter,
+        selectedByFilter
     };
 
     return (
