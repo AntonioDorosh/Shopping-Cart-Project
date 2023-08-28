@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ProductTypes} from "../../types";
 import {formatCurrency} from "../../utils/formatCurrency.ts";
-import {CardImage, CardTitle} from "../Card/Card.styled.tsx";
+import {CardImage, CardTitle} from "../Card/GridCard.tsx";
 import {CardButton, CardPrice, FavoriteButton} from "./CardItem.styled.tsx";
 import {useProduct} from "../../context/ProductContext.tsx";
 import {AiOutlineHeart} from "react-icons/ai";

@@ -8,15 +8,8 @@ export const BackButtonStyled = styled.button `
   &:hover {
     color: #1a73e8;
     transition: color 0.3s ease-in-out;
-    
-    &::after {
-      content: "BACK";
-      position: absolute;
-      top: -5%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1rem;
-    }
   }
 `
+
+
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardStyled} from "./Card.styled.tsx";
+import {GridCard} from "./GridCard.tsx";
 import CardItem from "../CardItem/CardItem.tsx";
 import {useProduct} from "../../context/ProductContext.tsx";
 import {filteredProducts} from "../../utils/filteredProducts.ts";
@@ -14,9 +14,9 @@ const Card = ({searchTerm}: CardPropsType) => {
     const filterProduct = filteredProducts(product, searchTerm);
 
     return (
-        <CardStyled>
+        <GridCard>
             {filterProduct?.map((item) => <CardItem key={item.id} {...item}/>)}
-        </CardStyled>
+        </GridCard>
     );
 };
 

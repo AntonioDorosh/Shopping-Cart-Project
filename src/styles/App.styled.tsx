@@ -5,5 +5,5 @@ export const AppStyled = styled.div`
   margin: 85px auto;
   background-color: #fff;
   border-radius: 20px;
-  padding: 20px;
+  padding: 40px;
 `

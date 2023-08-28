@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardStyled = styled.article`
+export const GridCard = styled.article`
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;

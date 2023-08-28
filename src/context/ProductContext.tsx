@@ -23,6 +23,7 @@ type ProductContextType = {
     filter: string;
     setFilter: (filter: string) => void;
     selectedByFilter: ProductTypes[];
+    deleteFromFavorite: (id: number) => void;
 }
 
 const ProductContext = createContext({} as ProductContextType);
@@ -83,6 +84,10 @@ export const ProductProvider: FC<{
         }
     }
 
+    const deleteFromFavorite = (id: number) => {
+        setFavorite(favorite.filter((item) => item.id !== id))
+    };
+
     const removeProduct = (id: number) => {
         const exist = productCart.find((item) => item.id === id);
 
@@ -120,7 +125,8 @@ export const ProductProvider: FC<{
         favorite,
         filter,
         setFilter,
-        selectedByFilter
+        selectedByFilter,
+        deleteFromFavorite
     };
 
     return (
